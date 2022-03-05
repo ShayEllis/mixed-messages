@@ -1,3 +1,3 @@
-#Mixed Messages#
-##Codecademy Portfolio Project##
-###Shay Ellis###
+# Mixed Messages #
+## Codecademy Portfolio Project ##
+### Shay Ellis ###
