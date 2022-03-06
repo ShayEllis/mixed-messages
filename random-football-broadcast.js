@@ -1,28 +1,30 @@
-// Random Football Broadcast Generator:
+/* --Random Football Broadcast Generator-- */
 
-//create function that will randomly pick an item in one of the arrays
-testArr = ["hi", "bye", "later", "sometime", "never"];
-
-const randomlyPick = (wordArr) => {
-    return Math.floor(Math.random() * wordArr.length);
+// Randomly generates a number from 0 to the number passed in or the array's last index.
+const randomlyPick = (numOrArr) => {
+    let maxVal = 0;
+    if (Array.isArray(numOrArr)) {
+        maxVal = numOrArr.length;
+    } else {
+        maxVal = numOrArr;
+    }
+    return Math.floor(Math.random() * maxVal);
 };
 
-console.log(testArr[randomlyPick(testArr)])
-
-//object to hold template message and words
-const FootballBroadcast = { // ***fix the word palcement***
+// Object that stores the broadcast and the methods used to generate it.
+const FootballBroadcast = {
     broadcast: "",
     adjectives: [],
-    _selectedAdjectives: [], // 2 - 1, 2
+    _selectedAdjectives: [],
     nous: [],
-    _selectedNouns: [], // 4 - 6, 7, 8, 9
-    ingVerb: [], // 1 - 14
-    pluralNoun: [], // 1 - 13
-    pluralAnimal: [], // 1 - 12
-    footballPlayers: [], 
-    _selectedFootballPlayers: [], // 3 - 3, 4, 5
-    bodyPart: [], // 1 - 11
-    number: [], // 1 - 10
+    _selectedNouns: [],
+    ingVerb: [],
+    pluralNoun: [],
+    pluralAnimal: [],
+    footballPlayers: [],
+    _selectedFootballPlayers: [],
+    bodyPart: [],
+    number: [],
     selectedAdjectives() {
         while (true) {
             let word = this.adjectives[randomlyPick(this.adjectives)];
@@ -43,17 +45,17 @@ const FootballBroadcast = { // ***fix the word palcement***
     generateBroadcast() {
         `Good afternoon, ladies and gentlemen. This is your favorite sportscaster
         bringing you the big football game between the Columbia
-        University ${a1} and the West Point ${a2}.
-        The center has just snapped the ${a3} back to the Columbia
-        star halfback, ${a4}, who is running around his own left
-        ${a5}. There he's tackled hard around the ${a6}. Now
-        it's West Point's ball and ${a7} to go. They're coming out of the
-        huddle. The ball is snapped back to ${a8}, who fades
-        back and throws ${a9} long, ${a10} pass which is caught by
-        ${a11}, who is West Point's ${a12} quarterback.
-        He's in the clear, and he races over the ${a13} for a touchdown.
-        No, no, wait! The referee is calling the play back to the 35-a
-        line. He's going to penalize West Point for ${a14}.`
+        University ${PA} and the West Point ${PN}.
+        The center has just snapped the ${N1} back to the Columbia
+        star halfback, ${MC1}, who is running around his own left
+        ${N2}. There he's tackled hard around the ${POTb}. Now
+        it's West Point's ball and ${NUM} to go. They're coming out of the
+        huddle. The ball is snapped back to ${MC2}, who fades
+        back and throws a long, ${A1} pass which is caught by
+        ${MC3}, who is West Point's ${A2} quarterback.
+        He's in the clear, and he races over the ${N3} for a touchdown.
+        No, no, wait! The referee is calling the play back to the 35-${N4}
+        line. He's going to penalize West Point for ${verbEndIng}.`
     },
     get randomBroadcast () {
         
